@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request
+
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     # Data lookup table
-    pia = { 'hx88wtn92ppwgh4 katey bday':'September 3', 'hx88wtn92ppwgh4 carol bday'
-           :'January 12', 'hx88wtn92ppwgh4 dan bday':'July 21', 'hx88wtn92ppwgh4 anniv'
-           :'August 17 (2012)' }
+    pia = {
+        'hx88wtn92ppwgh4 katey bday': 'September 3',
+        'hx88wtn92ppwgh4 carol bday': 'January 12',
+        'hx88wtn92ppwgh4 dan bday': 'July 21',
+        'hx88wtn92ppwgh4 anniv': 'August 17 (2012)'
+    }
     result = ''
     if request.method == 'POST':
         # Get the user's query from the form
