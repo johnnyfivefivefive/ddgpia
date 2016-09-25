@@ -14,3 +14,10 @@ pip install -r requirements.txt
 
 workon pia  # Ignore warnings
 python -m flask run
+
+
+### Deploying the app
+
+Commit changes in PyCharm
+git push heroku master
+App is at https://ddgpia.herokuapp.com
