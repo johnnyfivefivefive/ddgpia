@@ -7,22 +7,18 @@ app = Flask(__name__)
 def home():
     # Data lookup table
     pia = {
-        'Hx88Wtn92Ppwgh4 katey bday': 'September 3',
-        'Hx88Wtn92Ppwgh4 carol bday': 'January 12',
-        'Hx88Wtn92Ppwgh4 dan bday': 'July 21',
-        'Hx88Wtn92Ppwgh4 anniv': 'August 17 (2012)',
-        'Hx88Wtn92Ppwgh4 lentil soup': 'lentils, celery, onions, carrots, broth, tomato paste, red wine, thyme, salt, pepper',
-        'Hx88Wtn92Ppwgh4 cornerstone': '031207830',
-        'Hx88Wtn92Ppwgh4 shows': 'black mirror',
-        'Hx88Wtn92Ppwgh4 spinach': 'Trigon commercial: https://www.youtube.com/watch?v=a189xAYBRv8',
-        'hx88wtn92ppwgh4 katey bday': 'September 3',
-        'hx88wtn92ppwgh4 carol bday': 'January 12',
-        'hx88wtn92ppwgh4 dan bday': 'July 21',
-        'hx88wtn92ppwgh4 anniv': 'August 17 (2012)',
-        'hx88wtn92ppwgh4 lentil soup': 'lentils, celery, onions, carrots, broth, tomato paste, red wine, thyme, salt, pepper',
-        'hx88wtn92ppwgh4 cornerstone': '031207830',
-        'hx88wtn92ppwgh4 shows': 'black mirror',
-        'hx88wtn92ppwgh4 spinach': 'Trigon commercial: https://www.youtube.com/watch?v=a189xAYBRv8',
+        'katey bday': 'September 3',
+        'carol bday': 'January 12',
+        'dan bday': 'July 21',
+        'anniv': 'August 17 (2012)',
+        'lentil soup': 'lentils, celery, onions, carrots, broth, tomato paste, red wine, thyme, salt, pepper',
+        'cornerstone': '031207830',
+        'shows': 'black mirror',
+        'spinach': 'Trigon commercial: https://www.youtube.com/watch?v=a189xAYBRv8',
+        'katey xmas': 'will and grace',
+        'simple': '(6x8)11-7(5x2)9-71(19x2)-00(15x2)-m19-5three5',
+        'license': 'S3442 40786 04812, exp 4-30-18',
+
     }
     result = ''
     if request.method == 'POST':
