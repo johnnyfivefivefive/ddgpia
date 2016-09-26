@@ -17,6 +17,11 @@
     margin: auto;
     }
 
+  #Result {
+    width: 400px;
+    margin: auto;
+   }
+
   </style>
 </head>
 
@@ -30,14 +35,17 @@
 
 <form method="post">
     <div id="Piasearch">
-    <input type="text" name="query" style="height:45px" style="width:200px" value="Search your personal Instant Answers"/>
+    <input type="text" name="query" style="height:40px" style="width:200px" value="Search your personal Instant Answers"/>
     <input type="submit" value="Submit"/>
     </div>
 </form>
 
+
+  <div id="Result">
 {% if result %}
-    <p>Your result: {{ result }}</p>
+    <p>{{ result }}</p>
 {% endif %}
+    </div>
 
 </body>
 
