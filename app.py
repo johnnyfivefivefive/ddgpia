@@ -20,7 +20,7 @@ def home():
         'hx88wtn92ppwgh4 dan bday': 'July 21',
         'hx88wtn92ppwgh4 anniv': 'August 17 (2012)',
         'hx88wtn92ppwgh4 lentil soup': 'lentils, celery, onions, carrots, broth, tomato paste, red wine, thyme, salt, pepper',
-        'hx88Wtn92Ppwgh4 cornerstone': '031207830',
+        'hx88wtn92ppwgh4 cornerstone': '031207830',
         'hx88wtn92ppwgh4 shows': 'black mirror',
         'hx88wtn92ppwgh4 spinach': 'Trigon commercial: https://www.youtube.com/watch?v=a189xAYBRv8',
     }
