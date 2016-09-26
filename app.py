@@ -17,7 +17,7 @@ def home():
         'spinach': 'Trigon commercial: https://www.youtube.com/watch?v=a189xAYBRv8',
         'katey xmas': 'will and grace',
         'simple': '(6x8)11-7(5x2)9-71(19x2)-00(15x2)-m19-5three5',
-        'license': 'S3442 40786 04812, exp 4-30-18',
+        'license': 'S3442 40786 04812, exp 4-30-18'
 
     }
     result = ''
