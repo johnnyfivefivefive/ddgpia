@@ -1,54 +1,75 @@
 <html>
 <head>
     <title>PIA</title>
- <style>
-  #DDGsearch {
-    width: 400px;
-    height: 50px;
-    margin: auto;
-    padding-top: 350px;
-    }
+    <style>
+        #DDGsearch {
+            width: 400px;
+            height: 50px;
+            margin: auto;
+            padding-top: 250px;
+        }
 
-  #Piasearch {
-    width: 400px;
-    height: 100px;
-    margin: auto;
-    }
+        .piasearch {
+            width: 400px;
+            height: 100px;
+            margin: auto;
+        }
 
-  #Result {
-    width: 400px;
-    margin: auto;
-   }
+        .piasearch input[type="text"] {
+            height: 40px;
+            width: 320px;
+            border-radius: 3px;
+            font-size: 18px;
+            color: darkgray;
+        }
 
-  #query {
-      width: 320px;
-      border-radius: 3px;
-      font-size: 18px;
-      color: darkgray;
-  }
+        .search_result {
+            width: 400px;
+            margin: auto;
+        }
 
-  </style>
+    </style>
 </head>
 
 
 <body>
 
-  <div id="DDGsearch">
-    <iframe src="https://duckduckgo.com/search.html?prefill=Search DuckDuckGo&focus=yes" style="overflow:hidden;margin:0;padding:0;width:408px;height:40px;" frameborder="0"></iframe>
+<div id="DDGsearch">
+    <iframe src="https://duckduckgo.com/search.html?prefill=Search DuckDuckGo&focus=yes"
+            style="overflow:hidden;margin:0;padding:0;width:408px;height:40px;"
+            frameborder="0"></iframe>
 </div>
 
 
-<form method="post">
-    <div id="Piasearch">
-    <input type="text" id="query" name="query" style="height:40px" style="width:200px" placeholder="Search My Instant Answers"/>
-    <input type="submit" value="Submit"/>
-    </div>
-</form>
+<div class="piasearch">
+    <form method="post">
+        <input type="text" id="query" name="query" placeholder="Search My Instant Answers"/>
+        <input type="submit" value="Submit"/>
+    </form>
 
 
-{% if result %}
-    <p>{{ result }}</p>
-{% endif %}
+    {% if search_result %}
+        <p class="search_result">{{ search_result }}</p>
+    {% endif %}
+
+    <br>
+    <br>
+
+
+    <form method="post">
+        <h3>Add data to lookup table</h3>
+        <p>Note! Once added, data cannot be removed, so ensure you have the right values.</p>
+        <input type="text" id="key" name="key" placeholder="Lookup key" value="{{ key }}"/>
+        <input type="text" id="value" name="value" placeholder="Lookup value"/>
+        <input type="submit" value="Submit"/>
+    </form>
+
+
+    {% if add_result %}
+        <p class="search_result">{{ add_result }}</p>
+    {% endif %}
+
+</div>
 
 
 </body>

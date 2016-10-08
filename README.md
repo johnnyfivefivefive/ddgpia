@@ -5,16 +5,24 @@ Lookups
 
 ### Setup
 
+Install redis:
+brew install redis
+
 Create a virtualenvironment using python3
 export FLASK_APP=app.py  # Can add to activate script
 Activate virtualenvironment
 pip install -r requirements.txt
 
 
+### Import data
+
+python import_data.py
+
+
 ### Running the app (command line)
 
 workon pia  # Ignore warnings
-python -m flask run
+python app.py
 
 
 ### Running the app (PyCharm)

@@ -1,28 +1,49 @@
+import os
+import redis
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
+redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
+redis_conn = redis.from_url(redis_url)
+
+
+def redis_get(redis, key):
+    value = redis.get(key)
+    if value:
+        value = value.decode('ascii')
+    return value
 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    # Data lookup table
-    pia = {
-        'katey bday': 'September 3',
-        'carol bday': 'January 12',
-        'dan bday': 'July 21',
-        'anniv': 'August 17 (2012)',
-        'lentil soup': 'lentils, celery, onions, carrots, broth, tomato paste, red wine, thyme, salt, pepper',
-        'cornerstone': '031207830',
-        'shows': 'black mirror',
-        'spinach': 'Trigon commercial: https://www.youtube.com/watch?v=a189xAYBRv8',
-        'katey xmas': 'will and grace',
-        'simple': '(6x8)11-7(5x2)9-71(19x2)-00(15x2)-m19-5three5',
-        'license': 'S3442 40786 04812, exp 4-30-18'
-    }
-    result = ''
+    key = ''
+    search_result = ''
+    add_result = ''
     if request.method == 'POST':
-        # Get the user's query from the form
-        query = request.form.get('query')
-        # Try to get a lookup for the user query; if not found, result a message indicated no results
-        result = pia.get(query, 'No results found')
-    return render_template('home.html', result=result)
+        # Get the user's inputs from the form
+        query = request.form.get('query', '')
+        key = request.form.get('key', '')
+        value = request.form.get('value', '')
+        if key and value:
+            existing_value = redis_get(redis_conn, key)
+            print(existing_value)
+            if existing_value:
+                add_result = 'The key "{}" is already stored, with value: "{}"'.format(
+                    key, existing_value)
+            else:
+                redis_conn.set(key, value)
+                add_result = 'The key "{}" has been stored with value: "{}"'.format(key, value)
+                key = ''
+        else:
+            # Look for user query in redis
+            search_result = redis_get(redis_conn, query)
+            # If not found, return a message indicating no search_results
+            if not search_result:
+                search_result = 'No results found'
+                key = query
+    return render_template('home.html', key=key, search_result=search_result, add_result=add_result)
+
+
+if __name__ == "__main__":
+    app.run()
