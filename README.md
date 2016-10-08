@@ -11,10 +11,15 @@ Activate virtualenvironment
 pip install -r requirements.txt
 
 
+### Import data
+
+python import_data.py
+
+
 ### Running the app (command line)
 
 workon pia  # Ignore warnings
-python -m flask run
+python app.py
 
 
 ### Running the app (PyCharm)
