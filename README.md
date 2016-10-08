@@ -5,6 +5,9 @@ Lookups
 
 ### Setup
 
+Install redis:
+brew install redis
+
 Create a virtualenvironment using python3
 export FLASK_APP=app.py  # Can add to activate script
 Activate virtualenvironment
